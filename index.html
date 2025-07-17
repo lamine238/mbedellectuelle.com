@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA - Révolution du Savoir Alternatif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-brule: #D4621A;
+            --noir-profond: #1A1A1A;
+            --blanc-casse: #F5F5F5;
+            --jaune-moutarde: #DAA520;
+        }
+        
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
+        
+        .bg-orange-brule { background-color: var(--orange-brule); }
+        .bg-noir-profond { background-color: var(--noir-profond); }
+        .bg-blanc-casse { background-color: var(--blanc-casse); }
+        .text-orange-brule { color: var(--orange-brule); }
+        .text-noir-profond { color: var(--noir-profond); }
+        .text-jaune-moutarde { color: var(--jaune-moutarde); }
+        .border-orange-brule { border-color: var(--orange-brule); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--noir-profond) 0%, var(--orange-brule) 100%);
+        }
+        
+        .btn-revolution {
+            background: linear-gradient(45deg, var(--orange-brule), var(--jaune-moutarde));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-revolution:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 98, 26, 0.3);
+        }
+        
+        .quote-style {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .quote-style::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--orange-brule);
+            font-family: 'Bebas Neue', cursive;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange-brule), var(--jaune-moutarde), var(--orange-brule));
+            margin: 60px 0;
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .urban-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-blanc-casse text-noir-profond font-open-sans">
+    <!-- Header Navigation -->
+    <nav class="bg-noir-profond text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-orange-brule rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">RSA</span>
+                    </div>
+                    <h1 class="font-montserrat font-black text-xl">
+                        <span class="text-orange-brule">RÉVOLUTION</span>
+                        <span class="text-jaune-moutarde">SAVOIR ALTERNATIF</span>
+                    </h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#accueil" class="hover:text-orange-brule transition-colors">Accueil</a>
+                    <a href="#concept" class="hover:text-orange-brule transition-colors">Doctrine</a>
+                    <a href="#manifeste" class="hover:text-orange-brule transition-colors">Manifeste</a>
+                    <a href="#voix" class="hover:text-orange-brule transition-colors">Voix de la Rue</a>
+                    <a href="#inspirations" class="hover:text-orange-brule transition-colors">Inspirations</a>
+                    <a href="#galerie" class="hover:text-orange-brule transition-colors">Galerie</a>
+                    <a href="#boutique" class="hover:text-orange-brule transition-colors">Boutique</a>
+                    <a href="#communaute" class="hover:text-orange-brule transition-colors">Communauté</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bandeau Mbedellectuel -->
+    <div class="bg-orange-brule text-white py-3 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-brule via-jaune-moutarde to-orange-brule opacity-20"></div>
+        <div class="relative z-10">
+            <p class="font-bebas text-lg md:text-xl tracking-widest">
+                "MBED ak INTELLECT - LA RUE RENCONTRE LA PENSÉE"
+            </p>
+            <p class="font-montserrat text-sm opacity-90 mt-1">
+                Wolof • Français • Révolution
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('71iYstWM3DaRJmQ-ZUxs9');"></div>
+        <div class="absolute inset-0 bg-noir-profond bg-opacity-70"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="mb-6">
+                        <p class="font-bebas text-2xl md:text-3xl text-jaune-moutarde mb-2 tracking-wide">
+                            MBEDELLECTUEL MANIFESTO
+                        </p>
+                        <p class="font-montserrat text-lg opacity-90">
+                            "Dama nekk ci mbed, waaye sama xel du jàppante"
+                        </p>
+                        <p class="font-montserrat text-sm opacity-80 italic">
+                            (Je suis dans la rue, mais mon esprit ne s'arrête pas)
+                        </p>
+                    </div>
+                    <h2 class="font-bebas text-6xl md:text-8xl text-white mb-4 text-shadow">
+                        L'ÉCOLE T'A OUBLIÉ ?
+                    </h2>
+                    <h3 class="font-montserrat text-3xl md:text-4xl font-bold text-jaune-moutarde mb-6 text-shadow">
+                        LA RUE T'A FORMÉ.
+                    </h3>
+                    <p class="text-xl mb-8 leading-relaxed text-gray-200">
+                        Rejoins la <strong>Révolution du Savoir Alternatif</strong> - Là où l'intelligence se mesure en débrouillardise, pas en diplômes.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-revolution px-8 py-4 rounded-full text-white font-bold text-lg">
+                            REJOINS LA RÉVOLUTION
+                        </button>
+                        <button class="border-2 border-noir-profond px-8 py-4 rounded-full text-noir-profond font-bold text-lg hover:bg-noir-profond hover:text-white transition-all">
+                            LIS NOTRE MANIFESTE
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="0Vx3tYOuoNU5tr4qiv1rh" 
+                         alt="Mbedellectuel lisant et réfléchissant" 
+                         class="rounded-lg shadow-2xl max-w-md w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation Centrale -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <blockquote class="quote-style font-bebas text-4xl md:text-6xl max-w-4xl mx-auto text-noir-profond">
+                Le mbedellectuel n'est pas une opposition entre la rue et l'école, mais une réconciliation créative. 
+                Il transforme les leçons de la rue en forces positives à travers la réflexion.
+            </blockquote>
+            <p class="text-xl mt-8 text-jaune-moutarde font-montserrat">
+                - Philosophie de la Doctrine Mbedellectuelle
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Concept -->
+    <section id="concept" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    LA DOCTRINE MBEDELLECTUELLE
+                </h2>
+                <p class="text-xl max-w-4xl mx-auto text-gray-700 mb-8">
+                    Une passerelle révolutionnaire entre deux mondes : la rue qui forme et l'école qui élève. 
+                    Le mbedellectuel fusionne ces univers pour créer une nouvelle identité de changement.
+                </p>
+                <div class="bg-orange-brule text-white p-6 rounded-lg max-w-4xl mx-auto">
+                    <p class="font-bebas text-2xl mb-2">MBED + INTELLECTUEL</p>
+                    <p class="font-montserrat text-lg opacity-90">
+                        "La rue apprend la résilience, l'école donne les outils. Ensemble, ils forgent les leaders de demain."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Origine et Signification -->
+            <div class="mb-20">
+                <h3 class="font-bebas text-4xl text-orange-brule mb-8 text-center">
+                    ORIGINE ET SIGNIFICATION
+                </h3>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="bg-gray-50 p-8 rounded-lg">
+                            <h4 class="font-montserrat font-bold text-2xl mb-4">MBED (Wolof)</h4>
+                            <p class="text-gray-700 text-lg">
+                                La rue, un espace à la fois chaotique et formateur, où des leçons de vie essentielles se forgent. 
+                                Lieu de débrouillardise, de réalité brute et de survie.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-gray-50 p-8 rounded-lg">
+                            <h4 class="font-montserrat font-bold text-2xl mb-4">INTELLECTUEL</h4>
+                            <p class="text-gray-700 text-lg">
+                                Le pouvoir du savoir, la réflexion critique et l'envie de bâtir un avenir meilleur 
+                                à travers l'éducation et la transformation sociale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Les 5 Valeurs Fondatrices -->
+            <div class="mb-20">
+                <h3 class="font-bebas text-4xl text-orange-brule mb-12 text-center">
+                    LES 5 VALEURS FONDATRICES
+                </h3>
+                <div class="grid md:grid-cols-5 gap-6">
+                    <div class="card-hover bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-white text-2xl">💪</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-3">RÉSILIENCE</h4>
+                        <p class="text-gray-700 text-sm">
+                            Surmonter les défis, que ce soit dans la rue ou à l'école
+                        </p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-white text-2xl">🎓</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-3">ÉDUCATION</h4>
+                        <p class="text-gray-700 text-sm">
+                            Apprentissage qui dépasse les livres - la rue enseigne aussi
+                        </p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-white text-2xl">⚖️</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-3">ÉQUITÉ</h4>
+                        <p class="text-gray-700 text-sm">
+                            Accès aux outils de réussite pour tous, peu importe l'origine
+                        </p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-white text-2xl">🤝</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-3">SOLIDARITÉ</h4>
+                        <p class="text-gray-700 text-sm">
+                            S'appuyer sur la communauté pour grandir ensemble
+                        </p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-white text-2xl">💡</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-3">CRÉATIVITÉ</h4>
+                        <p class="text-gray-700 text-sm">
+                            Solutions nouvelles par une approche hybride théorique et pratique
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- La Rue comme Laboratoire Social -->
+            <div class="bg-gray-50 p-12 rounded-lg">
+                <h3 class="font-bebas text-4xl text-orange-brule mb-8 text-center">
+                    LA RUE COMME LABORATOIRE SOCIAL
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-brule rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-white text-3xl">🔍</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">IDENTIFIER LES TALENTS</h4>
+                        <p class="text-gray-700">
+                            Artistes, entrepreneurs, activistes – tous ces rôles se révèlent souvent dans la rue 
+                            avant d'être reconnus par la société.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-brule rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-white text-3xl">🏫</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">ÉCOLES INFORMELLES</h4>
+                        <p class="text-gray-700">
+                            Créer des espaces d'apprentissage dans les quartiers, où savoir et expérience 
+                            de vie se mélangent harmonieusement.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-brule rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-white text-3xl">🚀</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">MOTEUR DE PROGRÈS</h4>
+                        <p class="text-gray-700">
+                            Transformer la rue en terrain fertile pour inventer de nouveaux modèles 
+                            économiques et sociaux innovants.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="voix" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    VOIX DE LA RUE
+                </h2>
+                <p class="text-xl">Leurs histoires sont nos victoires mbedellectuelles</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/temoignage-1?prompt=Portrait%20d'un%20jeune%20homme%20africain%20souriant%20dans%20une%20banlieue,%20casquette,%20style%20urbain,%20lumière%20naturelle" 
+                             alt="Témoignage 1" 
+                             class="w-20 h-20 rounded-full object-cover mr-4">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl">Mamadou, 26 ans</h3>
+                            <p class="text-orange-brule">Entrepreneur Digital</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic">
+                        "J'ai quitté l'école à 16 ans. Aujourd'hui, je gère une agence web avec 10 employés. La rue m'a appris ce qu'aucun cours n'aurait pu m'enseigner : la persévérance et l'innovation. Je suis un vrai mbedellectuel !"
+                    </blockquote>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/temoignage-2?prompt=Portrait%20d'un%20jeune%20homme%20africain%20confiant%20dans%20un%20environnement%20urbain,%20streetwear,%20expression%20déterminée" 
+                             alt="Témoignage 2" 
+                             class="w-20 h-20 rounded-full object-cover mr-4">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl">Ibrahima, 23 ans</h3>
+                            <p class="text-orange-brule">Créateur de Mode</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic">
+                        "Mon atelier, c'est la rue. Mes clients, c'est le quartier. J'ai appris la couture en regardant, en essayant, en échouant. Aujourd'hui, mes créations sont portées dans toute la ville. C'est ça la mahrifa !"
+                    </blockquote>
+                </div>
+            </div>
+            
+            <!-- Section Art et Culture -->
+            <div class="bg-orange-brule text-white p-12 rounded-lg">
+                <h3 class="font-bebas text-4xl mb-8 text-center">
+                    L'ART COMME VÉHICULE DE SAVOIR
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-orange-brule text-3xl">🎤</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">HIP-HOP ÉDUCATIF</h4>
+                        <p class="text-lg opacity-90">
+                            Le rap et autres formes d'expression de la rue sont des outils puissants pour 
+                            transmettre des messages éducatifs et révolutionnaires.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-orange-brule text-3xl">📚</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">LITTÉRATURE ENGAGÉE</h4>
+                        <p class="text-lg opacity-90">
+                            Écrire sur les réalités du "mbed" pour sensibiliser les élites et donner une voix 
+                            aux sans-voix de nos communautés.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-orange-brule text-3xl">🎨</span>
+                        </div>
+                        <h4 class="font-montserrat font-bold text-xl mb-4">INNOVATION CULTURELLE</h4>
+                        <p class="text-lg opacity-90">
+                            Fusionner la culture de la rue avec celle des universités pour créer un art 
+                            nouveau et percutant qui parle à tous.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section id="galerie" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    LA RÉVOLUTION EN IMAGES
+                </h2>
+                <p class="text-xl text-gray-700">Nos mbedellectuels portent fièrement leurs convictions</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Image 1 -->
+                <div class="card-hover group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="EJuxAkKiU8rPOuFkb_iTo" 
+                         alt="Mbedellectuel avec t-shirt dans la rue" 
+                         class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir-profond/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-bebas text-2xl mb-2">MBEDELLECTUEL PRIDE</h3>
+                            <p class="font-montserrat text-sm">Fier d'être un penseur de la rue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="card-hover group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="V9jSYYRa1qTfqmMjFAD-K" 
+                         alt="T-shirt Mbedellectuel Sénégal avec globe" 
+                         class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir-profond/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-bebas text-2xl mb-2">GLOBAL MOVEMENT</h3>
+                            <p class="font-montserrat text-sm">Du Sénégal au monde entier</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="card-hover group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="9SgVJ41MHOktvEkGeVk6y" 
+                         alt="Presentation du t-shirt Mbedellectuel" 
+                         class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir-profond/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-bebas text-2xl mb-2">AUTHENTIC DESIGN</h3>
+                            <p class="font-montserrat text-sm">Design inspiré de la culture urbaine</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4 - Nouvelle image -->
+                <div class="card-hover group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="zFYAKAPa-kf4XlqHgFgXT" 
+                         alt="T-shirt noir Mbedellectuel Sénégal" 
+                         class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir-profond/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-bebas text-2xl mb-2">STYLE NOIR ÉLÉGANT</h3>
+                            <p class="font-montserrat text-sm">La classe mbedellectuelle en toute simplicité</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Citation Galerie -->
+            <div class="mt-16 text-center">
+                <div class="bg-orange-brule text-white p-8 rounded-lg max-w-4xl mx-auto">
+                    <blockquote class="font-bebas text-2xl md:text-3xl mb-4">
+                        "Chaque t-shirt porté est un manifeste ambulant, chaque image partagée est un acte de résistance"
+                    </blockquote>
+                    <p class="font-montserrat text-lg opacity-90">
+                        - La communauté Mbedellectuelle
+                    </p>
+                </div>
+            </div>
+
+            <!-- Appel à l'action -->
+            <div class="mt-12 text-center">
+                <p class="text-xl text-gray-700 mb-6">
+                    Tu portes aussi tes convictions ? Partage ta photo avec #Mbedellectuel
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-revolution px-8 py-4 rounded-full text-white font-bold text-lg">
+                        PARTAGER MA PHOTO
+                    </button>
+                    <button class="border-2 border-orange-brule px-8 py-4 rounded-full text-orange-brule font-bold text-lg hover:bg-orange-brule hover:text-white transition-all">
+                        COMMANDER MON <img src="qfu9ZctN8tTbCBwNvq7XF" alt="T-shirt 313 Mbedellectuel" class="w-full h-full object-cover">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Boutique -->
+    <section id="boutique" class="py-20 bg-noir-profond text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    PORTE TES CONVICTIONS
+                </h2>
+                <p class="text-xl">Affiche ta résistance</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="card-hover bg-white text-noir-profond p-6 rounded-lg">
+                    <div class="bg-orange-brule h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="qfu9ZctN8tTbCBwNvq7XF" alt="T-shirt 313 Mbedellectuel" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-2">T-shirt 313 Mbedellectuel</h3>
+                    <p class="text-gray-600 mb-4">"313 - Le code de l'intelligence alternative"</p>
+                    <p class="text-orange-brule font-bold text-xl">6 000 CFA</p>
+                </div>
+                
+                <div class="card-hover bg-white text-noir-profond p-6 rounded-lg">
+                    <div class="bg-orange-brule h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">SWEAT</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-2">Révolution Hoodie</h3>
+                    <p class="text-gray-600 mb-4">"La mahrifa ne se diplôme pas"</p>
+                    <p class="text-orange-brule font-bold text-xl">29 500 CFA</p>
+                </div>
+                
+                <div class="card-hover bg-white text-noir-profond p-6 rounded-lg">
+                    <div class="bg-orange-brule h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">COQUE</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-2">Phone Case RSA</h3>
+                    <p class="text-gray-600 mb-4">"Intelligence de terrain"</p>
+                    <p class="text-orange-brule font-bold text-xl">5 000 CFA</p>
+                </div>
+                
+                <div class="card-hover bg-white text-noir-profond p-6 rounded-lg">
+                    <div class="bg-orange-brule h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">LIVRE</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-2">Manifeste RSA</h3>
+                    <p class="text-gray-600 mb-4">La révolution en 200 pages</p>
+                    <p class="text-orange-brule font-bold text-xl">13 100 CFA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Manifeste -->
+    <section id="manifeste" class="py-20 bg-noir-profond text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    MANIFESTE DE LA RÉVOLUTION
+                </h2>
+                <p class="text-xl">Notre appel à la mobilisation mbedellectuelle</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-orange-brule p-8 rounded-lg mb-12">
+                    <h3 class="font-bebas text-3xl mb-6 text-center">
+                        UNE RENAISSANCE PAR LE MBEDELLECTUEL
+                    </h3>
+                    <p class="text-lg leading-relaxed text-center">
+                        Le mbedellectuel n'est pas seulement un concept, c'est un mouvement. Il porte une promesse de renaissance 
+                        pour les jeunes issus de la rue, en leur donnant les outils intellectuels pour transformer leurs vies et leurs communautés.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h4 class="font-bebas text-2xl text-orange-brule mb-4">TRANSFORMER</h4>
+                        <p class="text-gray-300">
+                            Transformer les leçons de la rue en forces positives. La rue apprend la résilience, 
+                            la débrouillardise et le sens des responsabilités.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h4 class="font-bebas text-2xl text-orange-brule mb-4">DÉMOCRATISER</h4>
+                        <p class="text-gray-300">
+                            Rendre le savoir accessible. L'école n'est pas toujours accueillante pour ceux qui 
+                            viennent de la "mbed". Abolissons ces barrières !
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h4 class="font-bebas text-2xl text-orange-brule mb-4">LÉGITIMER</h4>
+                        <p class="text-gray-300">
+                            Reconnaître le savoir de la rue comme légitime. Gestion des conflits, entrepreneuriat 
+                            informel, compréhension du terrain sont des compétences réelles.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h4 class="font-bebas text-2xl text-orange-brule mb-4">INNOVER</h4>
+                        <p class="text-gray-300">
+                            Repenser l'éducation en intégrant des expériences de vie réelles, adaptées aux 
+                            jeunes issus des quartiers populaires.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center bg-gray-800 p-8 rounded-lg">
+                    <h4 class="font-bebas text-3xl text-jaune-moutarde mb-6">
+                        NOTRE APPEL À LA MOBILISATION
+                    </h4>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Ne pas attendre que les institutions changent, mais créer ses propres opportunités :
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-white text-2xl">🚀</span>
+                            </div>
+                            <h5 class="font-montserrat font-bold text-lg mb-2">ENTREPRENDRE</h5>
+                            <p class="text-gray-400 text-sm">Créer ses propres opportunités</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-white text-2xl">🤝</span>
+                            </div>
+                            <h5 class="font-montserrat font-bold text-lg mb-2">S'ALLIER</h5>
+                            <p class="text-gray-400 text-sm">Former des alliances stratégiques</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-orange-brule rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-white text-2xl">🌿</span>
+                            </div>
+                            <h5 class="font-montserrat font-bold text-lg mb-2">HONORER</h5>
+                            <p class="text-gray-400 text-sm">Rendre hommage à ses racines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Inspirations -->
+    <section id="inspirations" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    NOS SOURCES D'INSPIRATION
+                </h2>
+                <p class="text-xl">Ceux qui ont ouvert la voie avant nous</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tupac Shakur -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/tupac-inspiration?prompt=Portrait%20artistique%20de%20Tupac%20Shakur%20en%20noir%20et%20blanc,%20style%20street%20art,%20expression%20intense" 
+                             alt="Tupac Shakur" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Tupac Shakur</h3>
+                            <p class="text-gray-300">Poète de la rue</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "Je ne suis pas un businessman, je suis un homme d'affaires qui fait du business. La différence ? J'ai appris dans la rue, pas dans les livres."
+                    </blockquote>
+                </div>
+
+                <!-- Biggie Smalls -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/biggie-inspiration?prompt=Portrait%20artistique%20de%20Biggie%20Smalls%20en%20noir%20et%20blanc,%20style%20hip-hop,%20expression%20confiante" 
+                             alt="Biggie Smalls" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Biggie Smalls</h3>
+                            <p class="text-gray-300">Roi du flow</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "J'ai grandi dans le ghetto, maintenant j'ai des millions. La rue m'a tout appris : comment survivre, comment réussir."
+                    </blockquote>
+                </div>
+
+                <!-- Frantz Fanon -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/fanon-inspiration?prompt=Portrait%20artistique%20de%20Frantz%20Fanon%20en%20noir%20et%20blanc,%20intellectuel%20africain,%20expression%20déterminée" 
+                             alt="Frantz Fanon" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Frantz Fanon</h3>
+                            <p class="text-gray-300">Psychiatre révolutionnaire</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "Chaque génération doit, dans une relative opacité, découvrir sa mission, la remplir ou la trahir."
+                    </blockquote>
+                </div>
+
+                <!-- Cheikh Anta Diop -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/diop-inspiration?prompt=Portrait%20artistique%20de%20Cheikh%20Anta%20Diop%20en%20noir%20et%20blanc,%20intellectuel%20sénégalais,%20expression%20sage" 
+                             alt="Cheikh Anta Diop" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Cheikh Anta Diop</h3>
+                            <p class="text-gray-300">Historien visionnaire</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "L'Afrique aura un destin scientifique ou n'aura pas de destin du tout. Le savoir traditionnel est la base de toute révolution."
+                    </blockquote>
+                </div>
+
+                <!-- Thomas Sankara -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/sankara-inspiration?prompt=Portrait%20artistique%20de%20Thomas%20Sankara%20en%20noir%20et%20blanc,%20leader%20africain,%20expression%20révolutionnaire" 
+                             alt="Thomas Sankara" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Thomas Sankara</h3>
+                            <p class="text-gray-300">Révolutionnaire panafricain</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "L'homme qui a de la conscience n'a pas besoin qu'on lui dise ce qu'il doit faire. La révolution commence par l'éducation de soi."
+                    </blockquote>
+                </div>
+
+                <!-- Amadou Hampâté Bâ -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/hampate-ba-inspiration?prompt=Portrait%20artistique%20d'Amadou%20Hampâté%20Bâ%20en%20noir%20et%20blanc,%20sage%20africain,%20expression%20bienveillante" 
+                             alt="Amadou Hampâté Bâ" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Amadou Hampâté Bâ</h3>
+                            <p class="text-gray-300">Sage de la tradition orale</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle. Le savoir ancestral vaut tous les diplômes."
+                    </blockquote>
+                </div>
+
+                <!-- Omar Blondin Diop -->
+                <div class="card-hover bg-noir-profond p-8 rounded-lg border-l-4 border-orange-brule">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/omar-blondin-diop-inspiration?prompt=Portrait%20artistique%20d'Omar%20Blondin%20Diop%20en%20noir%20et%20blanc,%20jeune%20révolutionnaire%20sénégalais,%20expression%20rebelle%20et%20intelligente" 
+                             alt="Omar Blondin Diop" 
+                             class="w-20 h-20 rounded-full object-cover mr-4 grayscale">
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-orange-brule">Omar Blondin Diop</h3>
+                            <p class="text-gray-300">Révolutionnaire étudiant</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-200 italic font-bebas text-lg">
+                        "L'université ne doit pas être un lieu d'endoctrinement, mais un espace de libération de la pensée. Le vrai savoir naît de la contestation."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="font-bebas text-3xl text-jaune-moutarde mb-6">
+                        DE LA RUE À LA RÉVOLUTION
+                    </h3>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        Ces géants ont tous un point commun : ils ont puisé leur force dans l'expérience directe, 
+                        dans la rue, dans la lutte, dans la résistance. Ils nous rappellent que le savoir le plus 
+                        puissant naît de la vie elle-même, pas des bancs de l'école.
+                    </p>
+                    
+                    <!-- Vision Internationale -->
+                    <div class="bg-orange-brule p-8 rounded-lg">
+                        <h4 class="font-bebas text-2xl mb-4">VISION INTERNATIONALE</h4>
+                        <p class="text-lg leading-relaxed">
+                            Dans les banlieues de France, les favelas du Brésil, les townships d'Afrique du Sud, 
+                            la dichotomie entre "la rue" et "l'école" existe également. Le concept mbedellectuel 
+                            peut devenir un mouvement mondial, réunissant toutes les populations marginalisées 
+                            autour du pouvoir transformateur du savoir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Communauté -->
+    <section id="communaute" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-5xl md:text-7xl text-orange-brule mb-4">
+                    REJOINS LA FAMILLE
+                </h2>
+                <p class="text-xl text-gray-700">Ensemble, nous sommes la révolution</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-6xl font-bebas text-orange-brule mb-4">12,847</div>
+                    <p class="text-xl font-montserrat">Mbedellectuels</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bebas text-orange-brule mb-4">47</div>
+                    <p class="text-xl font-montserrat">Pays</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bebas text-orange-brule mb-4">1,234</div>
+                    <p class="text-xl font-montserrat">Histoires partagées</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-noir-profond text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-orange-brule rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">RSA</span>
+                        </div>
+                        <h3 class="font-montserrat font-black text-xl">
+                            <span class="text-orange-brule">RÉVOLUTION</span>
+                            <span class="text-jaune-moutarde">SAVOIR ALTERNATIF</span>
+                        </h3>
+                    </div>
+                    <p class="text-gray-300">
+                        La révolution du savoir ne demande pas la permission. Elle commence par nous, elle continue par toi.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-montserrat font-bold text-lg mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-300 hover:text-orange-brule">Accueil</a></li>
+                        <li><a href="#concept" class="text-gray-300 hover:text-orange-brule">Doctrine</a></li>
+                        <li><a href="#manifeste" class="text-gray-300 hover:text-orange-brule">Manifeste</a></li>
+                        <li><a href="#voix" class="text-gray-300 hover:text-orange-brule">Voix de la Rue</a></li>
+                        <li><a href="#inspirations" class="text-gray-300 hover:text-orange-brule">Nos Inspirations</a></li>
+                        <li><a href="#galerie" class="text-gray-300 hover:text-orange-brule">Galerie</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-montserrat font-bold text-lg mb-4">Communauté</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-orange-brule">Forum</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-orange-brule">Événements</a></li>
+                        <li><a href="#boutique" class="text-gray-300 hover:text-orange-brule">Boutique</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-orange-brule">Devenir Mentor</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-montserrat font-bold text-lg mb-4">Nous Suivre</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-orange-brule rounded-full flex items-center justify-center hover:bg-jaune-moutarde transition-colors">
+                            <span class="text-white">f</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-orange-brule rounded-full flex items-center justify-center hover:bg-jaune-moutarde transition-colors">
+                            <span class="text-white">t</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-orange-brule rounded-full flex items-center justify-center hover:bg-jaune-moutarde transition-colors">
+                            <span class="text-white">i</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">© 2025 RSA - Révolution du Savoir Alternatif. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.querySelector('.md\\:flex');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                // Toggle mobile menu logic would go here
+                console.log('Mobile menu toggled');
+            });
+        }
+    </script>
+</body>
+</html>
